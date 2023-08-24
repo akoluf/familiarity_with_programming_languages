@@ -15,4 +15,6 @@ foreach (string number in numbers)
 int count = numbers.Length;
 Console.WriteLine($"\nБыло введено {count} чисел.");
 
-Console.ReadLine();
+Console.ReadLine(); 
+
+
