@@ -9,6 +9,7 @@ int columns = int.Parse(Console.ReadLine() ?? "");
 
 int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
+CalculateColumnAverages(array);
 
 int[,] GetArray(int m, int n, int minValue, int maxValue)
 {
@@ -25,6 +26,7 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
 
 void PrintArray(int[,] inArray)
 {
+    Console.WriteLine("Полученный массив:");
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
@@ -32,5 +34,24 @@ void PrintArray(int[,] inArray)
             Console.Write($"{inArray[i, j]} ");
         }
         Console.WriteLine();
+    }
+}
+
+void CalculateColumnAverages(int[,] inArray)
+{
+    Console.WriteLine("Среднее арифметическое элементов в каждом столбце:");
+
+    int rowCount = inArray.GetLength(0);
+    int columnCount = inArray.GetLength(1);
+
+    for (int j = 0; j < columnCount; j++)
+    {
+        double sum = 0;
+        for (int i = 0; i < rowCount; i++)
+        {
+            sum += inArray[i, j];
+        }
+        double average = sum / rowCount;
+        Console.WriteLine($"Столбец {j + 1}: {average}");
     }
 }
