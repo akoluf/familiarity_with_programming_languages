@@ -15,3 +15,22 @@ if (!int.TryParse(Console.ReadLine(), out int n))
     Console.WriteLine("Некорректный ввод числа N. Пожалуйста, введите целое число.");
     return;
 }
+
+if (m >= n)
+{
+    Console.WriteLine("Число N должно быть больше числа M.");
+    return;
+}
+
+string numbersString = GetNatur(n, m);
+
+Console.WriteLine(numbersString);
+Console.WriteLine("...............");
+
+
+static string GetNatur(int startNum, int endNum)
+{
+    if (startNum == endNum) return startNum.ToString();
+
+    return startNum + " " + GetNatur(startNum - 1, endNum);
+}
